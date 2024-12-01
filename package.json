@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "start": "node scr/index.js",
     "predeploy": "npm run build"  },
   "keywords": [],
   "author": "",
