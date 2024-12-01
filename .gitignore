@@ -1,0 +1,29 @@
+# Node modules
+/node_modules/
+
+# Logs
+*.log
+
+# NPM package-lock
+package-lock.json
+
+# OS specific files
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# Environment variables
+.env
+
+# Build output
+/build
+/dist
+
+# IDE settings
+.vscode/
+.idea/
+
+# npm-debug
+npm-debug.log*
+
+# Optional: yarn lock file (if you're using yarn)
+yarn.lock
