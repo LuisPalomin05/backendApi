@@ -10,8 +10,8 @@ usersCntrl.getUsers = async (req, res) => {
 
 usersCntrl.createUser = async (req, res) => {
     
-        const { username } = req.body;
-        const newUser = new User({ username });
+        const { username, password } = req.body;
+        const newUser = new User({ username,password });
         await newUser.save();
         res.send('User created');
 };
