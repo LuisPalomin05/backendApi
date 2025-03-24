@@ -10,13 +10,17 @@ usersCntrl.getUsers = async (req, res) => {
 
 usersCntrl.createUser = async (req, res) => {
     
-        const { username, password } = req.body;
-        const newUser = new User({ username,password });
+        const  username  = req.body;
+        const newUser = new User( username);
         await newUser.save();
+        console.log(newUser);
         res.send('User created');
 };
 
-usersCntrl.getUser = (req, res) => res.send('User found');
+usersCntrl.getUser = async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+}
 
 usersCntrl.updateUser = (req, res) => res.send('User updated');
 
