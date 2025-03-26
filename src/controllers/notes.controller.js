@@ -8,12 +8,13 @@ notesController.getNotes = async (req, res) => {
 };
 
 notesController.createNotes = async (req, res) => {
-  const { title, content, date, author } = req.body;
+  const { title, content,author, date,  } = req.body;
   const newNote = new Note({
     title,
     content,
-    date,
     author,
+    date,
+    
   });
 
   await newNote.save();
