@@ -6,5 +6,8 @@ const clienteSchema = new Schema({
     address: {type: String, required: true},
     phone: {type: String, required: true},
     email: {type: String, required: true},
-    attention: {type: String, required: true}
+    attention: {type: String, required: true},
+    empresa: {type: String, required: true},
 },{timestamps: true});
+
+module.exports = model('Cliente', clienteSchema);
