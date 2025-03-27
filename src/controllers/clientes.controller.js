@@ -1,4 +1,4 @@
-const clienteController = import("../controllers/cliente.controller");
+const clienteController = {};
 
 const Cliente = import("../models/clientes");
 
