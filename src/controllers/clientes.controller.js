@@ -1,6 +1,5 @@
 const clienteController = {};
-
-const Cliente = import("../models/clientes");
+const Cliente = require("../models/clientes");
 
 clienteController.getClientes = async (req, res) => {
   const clientes = await Cliente.find();

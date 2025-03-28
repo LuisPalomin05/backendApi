@@ -1,7 +1,9 @@
 const {Router} =require('express');
+const {getProveedores, createProveedores,getProveedor,deleteProveedor,updateProveedor} = require('../controllers/proveedores.controller');
+
 const router = Router();
 
-const {getProveedores, createProveedores,getProveedor,deleteProveedor,updateProveedor} = require('../controllers/proveedores.controller');
+
 
 router.route('/')
     .get(getProveedores).post(createProveedores);

@@ -1,4 +1,4 @@
-const notesController = require("../controllers/notes.controller");
+const notesController = {};
 
 const Note = require("../models/notes");
 

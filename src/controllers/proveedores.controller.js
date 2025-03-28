@@ -1,31 +1,31 @@
-const suppliersController = require('../controllers/suppliers.controller');
+const suppliersController = {};
 
-const supplier = require('../models/suppliers');
+const supplier = require('../models/proveedores');
 
-suppliersController.getSuppliers = async (req, res) => {
+suppliersController.getProveedores = async (req, res) => {
     const suppliers = await supplier.find();
     if(suppliers.length === 0) return res.json({message: 'No suppliers found'});
     res.json(suppliers);
 };
 
-suppliersController.createSupplier = async (req, res) => {
+suppliersController.createProveedores = async (req, res) => {
     const { rucSupplier, name, address, phone, email, attention } = req.body;
     const newSupplier = new supplier({ rucSupplier, name, address, phone, email, attention });
     await newSupplier.save();
     res.json({ message: 'Supplier saved' });
 };
 
-suppliersController.getSupplier = async (req, res) => {
+suppliersController.getProveedor = async (req, res) => {
     const supplier = await supplier.findById(req.params.id);
     res.json(supplier);
 };
 
-suppliersController.deleteSupplier = async (req, res) => {
+suppliersController.deleteProveedor = async (req, res) => {
     await supplier.findByIdAndDelete(req.params.id);
     res.json({ message: 'Supplier deleted' });
 }
 
-suppliersController.updateSupplier = async (req, res) => {
+suppliersController.updateProveedor = async (req, res) => {
     const { rucSupplier, name, address, phone, email, attention } = req.body;
     await supplier.findByIdAndUpdate(req.params.id, { rucSupplier, name, address, phone, email, attention });
     res.json({ message: 'Supplier updated' });
