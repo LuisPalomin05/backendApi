@@ -6,6 +6,7 @@ const app = express();
 app.set('port', process.env.PORT || 7000);
 //middlewares
 app.use(cors());
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
