@@ -7,15 +7,15 @@ clienteController.getClientes = async (req, res) => {
 };
 
 clienteController.createCliente = async (req, res) => {
-  const { rucCliente,name,address,phone,email,attention,empresa } = req.body;
+  const { ruc, cliente, direccion, telefono, email, atencion, empresa } = req.body;
   const newCliente = new Cliente({
-    rucCliente,
-    name,
-    address,
-    phone,
+    ruc,
+    cliente,
+    direccion,
+    telefono,
     email,
-    attention,
-    empresa
+    atencion,
+    empresa,
   });
   await newCliente.save();
   res.json({ message: "Cliente saved" });
