@@ -1,10 +1,21 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require("mongoose");
 
-const ventaSchema = new Schema ({
-        title: String,
-        author: String, 
-    },{
-        timestamps: true
-    })
+const ventaSchema = new Schema(
+  {
+    ruc: { type: String, require: true },
+    cliente: { type: String },
+    emision: { type: String },
+    vencimiento: { type: String },
+    empresa: { type: String },
+    nfactura: { type: String },
+    total: { type: String, require: true },
+    moneda: { type: String },
 
-    module.exports = model('Venta',ventaSchema)
+
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = model("Venta", ventaSchema);

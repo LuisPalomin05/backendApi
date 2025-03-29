@@ -3,7 +3,12 @@ const Cliente = require("../models/clientes");
 
 clienteController.getClientes = async (req, res) => {
   const clientes = await Cliente.find();
-  res.json(clientes);
+  
+  if (clientes.length == 0) {
+    res.json({message:'no hay datos'})
+  }else{
+    res.json(clientes);
+  }
 };
 
 clienteController.createCliente = async (req, res) => {
