@@ -4,7 +4,7 @@ const {getVentas, createVenta, getVenta, updateVenta, deleteVenta} = require('..
 
 router.route('/')
 .get(getVentas)
-.get(createVenta);
+.post(createVenta);
 
 router.route('/:id')
 .get(getVenta)

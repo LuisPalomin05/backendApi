@@ -2,13 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const ventaSchema = new Schema(
   {
-    ruc: { type: String, require: true },
+    ruc: { type: String, required: true },
     cliente: { type: String },
     emision: { type: String },
     vencimiento: { type: String },
     empresa: { type: String },
     nfactura: { type: String },
-    total: { type: String, require: true },
+    total: { type: Number, required: true },
     moneda: { type: String },
 
 

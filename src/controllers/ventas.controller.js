@@ -5,6 +5,10 @@ const Venta = require("../models/Ventas");
 ventasCntrl.getVentas = async (req, res) => {
   const ventas = await Venta.find();
   res.json(ventas);
+  if (ventas.length == 0) {
+    res.json({message:'no hay ventas registrada'})
+
+  }
 };
 
 ventasCntrl.createVenta = async (req, res) => {
@@ -31,6 +35,8 @@ ventasCntrl.createVenta = async (req, res) => {
   await newVentas.save();
   res.send("venta created");
 };
+
+
 ventasCntrl.getVenta = async (req, res) => {
   const ventas = await Venta.findById(req.params.id);
   res.json(ventas);
