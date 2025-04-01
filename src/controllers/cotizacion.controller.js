@@ -14,21 +14,69 @@ cotizacionCntlr.getCotizacion = async (req, res)=> {
 }
 
 cotizacionCntlr.createCotizaciones = async(req, res)=>{
-    const {numeroCotizacion,nombrecliente,rucCliente,usuarioCreador,tipoCotizacion,fecha,productos,metodoPago,moneda, total,estado,observaciones,razonSocial } = req.body;
+    const {
+        ruc,
+          cliente,
+          empresa,
+          emision,
+          moneda,
+          formaPago,
+          nCotizacion,
+          productos,
+          totalPago,
+          observaciones,
+          estado,
+          autor,
+      } = req.body;
 
     const newCotizacion = new cotizacion({
-        numeroCotizacion,nombrecliente,rucCliente,usuarioCreador,tipoCotizacion,fecha,productos,metodoPago,moneda, total,estado,observaciones,razonSocial 
-    });
+        ruc,
+          cliente,
+          empresa,
+          emision,
+          moneda,
+          formaPago,
+          nCotizacion,
+          productos,
+          totalPago,
+          observaciones,
+          estado,
+          autor,
+      });
 
     await newCotizacion.save();
 };
 
 cotizacionCntlr.updateCotizaciones = async(req, res)=>{
-    const {numeroCotizacion,nombrecliente,rucCliente,usuarioCreador,tipoCotizacion,fecha,productos,metodoPago,moneda, total,estado,observaciones,razonSocial } = req.body;
+    const {
+        ruc,
+          cliente,
+          empresa,
+          emision,
+          moneda,
+          formaPago,
+          nCotizacion,
+          productos,
+          totalPago,
+          observaciones,
+          estado,
+          autor,
+      }= req.body;
 
     await cotizacion.findOneAndUpdate({_id:req.params.id }, {
-        numeroCotizacion,nombrecliente,rucCliente,usuarioCreador,tipoCotizacion,fecha,productos,metodoPago,moneda, total,estado,observaciones,razonSocial 
-    });
+        ruc,
+          cliente,
+          empresa,
+          emision,
+          moneda,
+          formaPago,
+          nCotizacion,
+          productos,
+          totalPago,
+          observaciones,
+          estado,
+          autor,
+      });
 
     res.json({ message: 'cotizacion updated' });
 };

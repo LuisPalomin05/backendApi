@@ -1,11 +1,10 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model} = require("mongoose");
 
-const ventaSchema = new Schema(
+const comprasSchema = new Schema(
   {
     ruc: { type: String, required: true },
     cliente: { type: String },
     emision: { type: String },
-    vencimiento: { type: String },
     empresa: { type: String },
     nfactura: { type: String },
     total: { type: Number, required: true },
@@ -16,4 +15,4 @@ const ventaSchema = new Schema(
   }
 );
 
-module.exports = model("Venta", ventaSchema);
+module.exports = model("Compras", comprasSchema);
