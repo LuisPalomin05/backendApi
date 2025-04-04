@@ -47,9 +47,9 @@ comprasCntrl.updateCompra = async (req, res) => {
   res.json({ message: "compra creada" });
 };
 
-ventasCntrl.deleteCompra = async (req,res)=>{
-    await Compra.findByIdDelete(req.params.id);
-    res.json("eliminar compra")
-} 
+// ventasCntrl.deleteCompra = async (req,res)=>{
+//     await Compra.findByIdDelete(req.params.id);
+//     res.json("eliminar compra")
+// } 
 
 module.exports = comprasCntrl;
