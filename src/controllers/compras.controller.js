@@ -1,8 +1,6 @@
 const comprasCntrl = {};
 
 const Compra = require("../models/compras");
-const ventasCntrl = require("./ventas.controller");
-
 comprasCntrl.getCompras = async (req, res) => {
   const compras = await Compra.find();
   res.json(compras);
@@ -11,7 +9,7 @@ comprasCntrl.getCompras = async (req, res) => {
 comprasCntrl.createCompra = async (req, res) => {
   const { ruc, cliente, emision, empresa, nfactura, total, moneda } = req.body;
 
-  const newCompra = new Ventas({
+  const newCompra = new Compra({
     ruc,
     cliente,
     emision,
@@ -47,9 +45,9 @@ comprasCntrl.updateCompra = async (req, res) => {
   res.json({ message: "compra creada" });
 };
 
-// ventasCntrl.deleteCompra = async (req,res)=>{
-//     await Compra.findByIdDelete(req.params.id);
-//     res.json("eliminar compra")
-// } 
+ventasCntrl.deleteCompra = async (req,res)=>{
+    await Compra.findByIdDelete(req.params.id);
+    res.json("eliminar compra")
+} 
 
 module.exports = comprasCntrl;
