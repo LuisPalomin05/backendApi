@@ -45,7 +45,7 @@ comprasCntrl.updateCompra = async (req, res) => {
   res.json({ message: "compra creada" });
 };
 
-ventasCntrl.deleteCompra = async (req,res)=>{
+comprasCntrl.deleteCompra = async (req,res)=>{
     await Compra.findByIdDelete(req.params.id);
     res.json("eliminar compra")
 } 
