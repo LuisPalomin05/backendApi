@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const helmet = require('helmet');
+app.use(helmet());
 
 //settings
 app.set('port', process.env.PORT || 7000);
