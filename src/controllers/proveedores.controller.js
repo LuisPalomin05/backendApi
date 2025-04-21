@@ -16,8 +16,9 @@ suppliersController.createProveedores = async (req, res) => {
 };
 
 suppliersController.getProveedor = async (req, res) => {
-    const supplier = await supplier.findById(req.params.id);
-    res.json(supplier);
+    const suppliers = await supplier.findById(req.params.id);
+    if (!suppliers) return res.status(404).json({ message: 'Supplier not found' });
+    res.json(suppliers);
 };
 
 suppliersController.deleteProveedor = async (req, res) => {

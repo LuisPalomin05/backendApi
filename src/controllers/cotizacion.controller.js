@@ -10,6 +10,7 @@ res.json(cotizaciones)
 
 cotizacionCntlr.getCotizacion = async (req, res)=> {
     const cotizaciones = await cotizacion.findById(req.params.id);
+    if (!cotizaciones) return res.status(404).json({ message: 'cotizacion not found' });
     res.json(cotizaciones)
 }
 

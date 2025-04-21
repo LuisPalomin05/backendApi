@@ -37,6 +37,7 @@ ventasCntrl.createVenta = async (req, res) => {
 
 ventasCntrl.getVenta = async (req, res) => {
   const ventas = await Venta.findById(req.params.id);
+  if (!ventas) return res.status(404).json({ message: "venta not found" });
   res.json(ventas);
 };
 
