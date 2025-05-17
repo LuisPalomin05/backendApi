@@ -10,24 +10,34 @@ ventasCntrl.getVentas = async (req, res) => {
 
 ventasCntrl.createVenta = async (req, res) => {
   const {
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   } = req.body;
   const newVentas = new Venta({
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   });
   await newVentas.save();
   res.send("venta created");
@@ -41,26 +51,36 @@ ventasCntrl.getVenta = async (req, res) => {
 
 ventasCntrl.updateVenta = async (req, res) => {
   const {
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   } = req.body;
   await Venta.findOneAndUpdate(
     { _id: req.params.id },
     {
-      ruc,
-      cliente,
-      emision,
-      vencimiento,
-      empresa,
-      nfactura,
-      total,
-      moneda,
+      rucReceptor,
+      razonReceptor,
+      rucEmisor,
+      razonEmisor,
+      fechaEmision,
+      fechaVencimiento,
+      formaPago,
+      tipoMoneda,
+      numeroFactura,
+      importeTotal,
+      guiaRemision,
+      ordenCompra,
+      usuarioCreador
     }
   );
   res.json({ menssage: "Venta creada" });
