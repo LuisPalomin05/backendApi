@@ -24,6 +24,7 @@ comprasCntrl.createCompra = async (req, res) => {
 
 comprasCntrl.getCompra = async (req, res) => {
   const compras = await Compra.findById(req.params.id);
+  if (!compras) return res.status(404).json({ message: "compra not found" });
   res.json(compras);
 };
 
@@ -46,7 +47,7 @@ comprasCntrl.updateCompra = async (req, res) => {
 };
 
 comprasCntrl.deleteCompra = async (req,res)=>{
-    await Compra.findByIdDelete(req.params.id);
+    await Compra.findByIdAndDelete(req.params.id);
     res.json("eliminar compra")
 } 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const helmet = require('helmet');
 
 //settings
 app.set('port', process.env.PORT || 7000);
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 });
 
 //routes
+
 app.use('/api/users', require('./routes/users'));
 app.use('/api/ventas', require('./routes/ventas'));
 app.use('/api/cotizacion', require('./routes/cotizacion'));

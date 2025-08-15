@@ -18,13 +18,12 @@ notesController.createNotes = async (req, res) => {
   });
 
   await newNote.save();
-  console.log(newNote);
   res.json({ message: "post request" });
 };
 
 notesController.getNote = async (req, res) => {
   const note = await Note.findById(req.params.id);
-  console.log(Note);
+  if (!note) return res.status(404).json({ message: "Note not found" });
   res.json(note);
 };
 

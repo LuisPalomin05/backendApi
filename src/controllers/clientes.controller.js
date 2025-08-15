@@ -24,6 +24,7 @@ clienteController.createCliente = async (req, res) => {
 
 clienteController.getCliente = async (req, res) => {
   const cliente = await Cliente.findById(req.params.id);
+  if (!cliente) return res.status(404).json({ message: "Cliente not found" });
   res.json(cliente);
 };
 

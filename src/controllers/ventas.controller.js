@@ -5,31 +5,39 @@ const Venta = require("../models/Ventas");
 ventasCntrl.getVentas = async (req, res) => {
   const ventas = await Venta.find();
   res.json(ventas);
-  if (ventas.length == 0) {
-    res.json({ message: "no hay ventas registrada" });
-  }
+
 };
 
 ventasCntrl.createVenta = async (req, res) => {
   const {
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   } = req.body;
   const newVentas = new Venta({
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   });
   await newVentas.save();
   res.send("venta created");
@@ -37,31 +45,42 @@ ventasCntrl.createVenta = async (req, res) => {
 
 ventasCntrl.getVenta = async (req, res) => {
   const ventas = await Venta.findById(req.params.id);
+  if (!ventas) return res.status(404).json({ message: "venta not found" });
   res.json(ventas);
 };
 
 ventasCntrl.updateVenta = async (req, res) => {
   const {
-    ruc,
-    cliente,
-    emision,
-    vencimiento,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucReceptor,
+    razonReceptor,
+    rucEmisor,
+    razonEmisor,
+    fechaEmision,
+    fechaVencimiento,
+    formaPago,
+    tipoMoneda,
+    numeroFactura,
+    importeTotal,
+    guiaRemision,
+    ordenCompra,
+    usuarioCreador
   } = req.body;
   await Venta.findOneAndUpdate(
     { _id: req.params.id },
     {
-      ruc,
-      cliente,
-      emision,
-      vencimiento,
-      empresa,
-      nfactura,
-      total,
-      moneda,
+      rucReceptor,
+      razonReceptor,
+      rucEmisor,
+      razonEmisor,
+      fechaEmision,
+      fechaVencimiento,
+      formaPago,
+      tipoMoneda,
+      numeroFactura,
+      importeTotal,
+      guiaRemision,
+      ordenCompra,
+      usuarioCreador
     }
   );
   res.json({ menssage: "Venta creada" });
