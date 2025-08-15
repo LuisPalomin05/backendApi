@@ -21,6 +21,8 @@ app.use('/api/notes', require('./routes/notes'));
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/proveedores', require('./routes/proveedores'));
 app.use('/api/compras', require('./routes/compras'));
+app.use('/api/sunat', require('./routes/sunat.routes.js'));
+
 
 
 
