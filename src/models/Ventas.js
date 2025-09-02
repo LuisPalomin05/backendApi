@@ -17,12 +17,12 @@ const ventaSchema = new Schema(
     usuarioCreador: { type: String },
 
 
-    emision: { type: String },
-    vencimiento: { type: String },
-    empresa: { type: String },
-    nfactura: { type: String },
-    total: { type: Number, required: true },
-    moneda: { type: String },
+    // emision: { type: String },
+    // vencimiento: { type: String },
+    // empresa: { type: String },
+    // nfactura: { type: String },
+    // total: { type: Number, required: true },
+    // moneda: { type: String },
   },
   {
     timestamps: true,
