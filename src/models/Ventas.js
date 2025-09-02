@@ -5,7 +5,7 @@ const ventaSchema = new Schema(
     rucReceptor: { type: String, required: true },
     razonReceptor: { type: String },
     rucEmisor: { type: String, required: true },
-    razonEmisor: { type: Date },
+    razonEmisor: { type: String },
     fechaEmision: { type: Date },
     fechaVencimiento: { type: String },
     formaPago: { type: String },
