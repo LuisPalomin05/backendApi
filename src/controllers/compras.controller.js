@@ -10,13 +10,12 @@ comprasCntrl.createCompra = async (req, res) => {
   const { ruc, cliente, emision, empresa, nfactura, total, moneda } = req.body;
 
   const newCompra = new Compra({
-    ruc,
-    cliente,
-    emision,
-    empresa,
-    nfactura,
-    total,
-    moneda,
+    rucCliente,
+    nombreCliente,
+    fechaEmision,
+    numerofactura,
+    importeTotal,
+    tipoMoneda,
   });
   await newCompra.save();
   res.send("compra created");
@@ -29,26 +28,32 @@ comprasCntrl.getCompra = async (req, res) => {
 };
 
 comprasCntrl.updateCompra = async (req, res) => {
-  const { ruc, cliente, emision, empresa, nfactura, total, moneda } = req.body;
+  const {
+    rucCliente,
+    nombreCliente,
+    fechaEmision,
+    numerofactura,
+    importeTotal,
+    tipoMoneda,
+  } = req.body;
 
   await Compra.findOneAndUpdate(
     { _id: req.params.id },
     {
-      ruc,
-      cliente,
-      emision,
-      empresa,
-      nfactura,
-      total,
-      moneda,
+      rucCliente,
+      nombreCliente,
+      fechaEmision,
+      numerofactura,
+      importeTotal,
+      tipoMoneda,
     }
   );
   res.json({ message: "compra creada" });
 };
 
-comprasCntrl.deleteCompra = async (req,res)=>{
-    await Compra.findByIdAndDelete(req.params.id);
-    res.json("eliminar compra")
-} 
+comprasCntrl.deleteCompra = async (req, res) => {
+  await Compra.findByIdAndDelete(req.params.id);
+  res.json("eliminar compra");
+};
 
 module.exports = comprasCntrl;

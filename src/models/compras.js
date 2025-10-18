@@ -2,17 +2,17 @@ const { Schema, model} = require("mongoose");
 
 const comprasSchema = new Schema(
   {
-    ruc: { type: String, required: true },
-    cliente: { type: String },
-    emision: { type: String },
-    empresa: { type: String },
-    nfactura: { type: String },
-    total: { type: Number, required: true },
-    moneda: { type: String },
+    rucCliente: { type: String, required: true },
+    nombreCliente: { type: String },
+    fechaEmision: { type: String },
+    numerofactura: { type: String },
+    importeTotal: { type: Number, required: true },
+    tipoMoneda: { type: String },
   },
   {
     timestamps: true,
   }
 );
+
 
 module.exports = model("Compras", comprasSchema);

@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const URI = process.env.MONGODB_URI
 ? process.env.MONGODB_URI
-: 'mongodb://localhost:27017/test';
+: 'mongodb://localhost:27017/scemongodb';
 
 mongoose.connect(URI, {
     

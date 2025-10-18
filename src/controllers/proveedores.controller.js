@@ -9,8 +9,18 @@ suppliersController.getProveedores = async (req, res) => {
 };
 
 suppliersController.createProveedores = async (req, res) => {
-    const { rucSupplier, name, address, phone, email, attention } = req.body;
-    const newSupplier = new supplier({ rucSupplier, name, address, phone, email, attention });
+    const {     rucProveedor,
+    nombreProveedor,
+    direccion,
+    telefono,
+    email,
+    atencion, } = req.body;
+    const newSupplier = new supplier({     rucProveedor,
+    nombreProveedor,
+    direccion,
+    telefono,
+    email,
+    atencion,});
     await newSupplier.save();
     res.json({ message: 'Supplier saved' });
 };
@@ -27,8 +37,18 @@ suppliersController.deleteProveedor = async (req, res) => {
 }
 
 suppliersController.updateProveedor = async (req, res) => {
-    const { rucSupplier, name, address, phone, email, attention } = req.body;
-    await supplier.findByIdAndUpdate(req.params.id, { rucSupplier, name, address, phone, email, attention });
+    const {     rucProveedor,
+    nombreProveedor,
+    direccion,
+    telefono,
+    email,
+    atencion, } = req.body;
+    await supplier.findByIdAndUpdate(req.params.id, {     rucProveedor,
+    nombreProveedor,
+    direccion,
+    telefono,
+    email,
+    atencion,});
     res.json({ message: 'Supplier updated' });
 }
 

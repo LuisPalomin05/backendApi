@@ -5,7 +5,7 @@ const ProveedorSchema = new Schema({
         type: String,
         required: true
     },
-    nombre: String,
+    nombreProveedor: String,
     direccion: String,
     telefono: String ,
     email: String,
@@ -15,3 +15,7 @@ const ProveedorSchema = new Schema({
 });
 
 module.exports = model('Proveedor', ProveedorSchema);
+
+
+
+

@@ -14,15 +14,6 @@ const ventaSchema = new Schema(
     importeTotal: { type: Number, required: true },
     guiaRemision: { type: String },
     ordenCompra: { type: String },
-    usuarioCreador: { type: String },
-
-
-    // emision: { type: String },
-    // vencimiento: { type: String },
-    // empresa: { type: String },
-    // nfactura: { type: String },
-    // total: { type: Number, required: true },
-    // moneda: { type: String },
   },
   {
     timestamps: true,

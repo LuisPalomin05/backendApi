@@ -3,20 +3,18 @@ const Cliente = require("../models/clientes");
 
 clienteController.getClientes = async (req, res) => {
   const clientes = await Cliente.find();
-    res.json(clientes);
-
+  res.json(clientes);
 };
 
 clienteController.createCliente = async (req, res) => {
-  const { ruc, cliente, direccion, telefono, email, atencion, empresa } = req.body;
+  const { rucCliente, nombreCliente, direccion, telefono, email, atencion } = req.body;
   const newCliente = new Cliente({
-    ruc,
-    cliente,
+    rucCliente,
+    nombreCliente,
     direccion,
     telefono,
     email,
     atencion,
-    empresa,
   });
   await newCliente.save();
   res.json({ message: "Cliente saved" });
