@@ -1,6 +1,6 @@
 const usersCntrl = {};
 
-const User = require('../models/Users');
+const User = require('../models/usuarios');
 
 usersCntrl.getUsers = async (req, res) => {
 

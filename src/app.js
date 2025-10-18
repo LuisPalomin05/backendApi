@@ -16,14 +16,14 @@ app.get('/', (req, res) => {
 
 //routes
 
-app.use('/api/users', require('./routes/users'));
+app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/ventas', require('./routes/ventas'));
 app.use('/api/cotizacion', require('./routes/cotizacion'));
 app.use('/api/notes', require('./routes/notes'));
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/proveedores', require('./routes/proveedores'));
 app.use('/api/compras', require('./routes/compras'));
-
+app.use('/api/pedidos', require('./routes/pedidos'));
 
 
 
