@@ -56,15 +56,15 @@ comprasCntrl.updateCompra = async (req, res) => {
   await Compra.findOneAndUpdate(
     { _id: req.params.id },
     {
-    nombreCliente,
-    rucCliente,
-    fechaEmision,
-    numeroFactura,
-    tipoMoneda,
-    importeTotal,
-    metodoPago,
-    guiaRemision,
-    ordenCompra,
+      nombreCliente,
+      rucCliente,
+      fechaEmision,
+      numeroFactura,
+      tipoMoneda,
+      importeTotal,
+      metodoPago,
+      guiaRemision,
+      ordenCompra,
     }
   );
   res.json({ message: "compra creada" });
