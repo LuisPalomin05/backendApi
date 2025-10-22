@@ -5,39 +5,30 @@ const Venta = require("../models/Ventas");
 ventasCntrl.getVentas = async (req, res) => {
   const ventas = await Venta.find();
   res.json(ventas);
-
 };
 
 ventasCntrl.createVenta = async (req, res) => {
   const {
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
   } = req.body;
   const newVentas = new Venta({
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
   });
   await newVentas.save();
   res.send("venta created");
@@ -51,39 +42,31 @@ ventasCntrl.getVenta = async (req, res) => {
 
 ventasCntrl.updateVenta = async (req, res) => {
   const {
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
   } = req.body;
   await Venta.findOneAndUpdate(
     { _id: req.params.id },
     {
-      rucReceptor,
-      razonReceptor,
-      rucEmisor,
-      razonEmisor,
+      nombreCliente,
+      rucCliente,
       fechaEmision,
-      fechaVencimiento,
-      formaPago,
-      tipoMoneda,
       numeroFactura,
+      tipoMoneda,
       importeTotal,
+      metodoPago,
       guiaRemision,
       ordenCompra,
-      usuarioCreador
     }
   );
-  res.json({ menssage: "Venta creada" });
+  res.json({ menssage: "Venta actualizada" });
 };
 
 ventasCntrl.deleteVenta = async (req, res) => {
