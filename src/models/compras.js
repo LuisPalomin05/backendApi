@@ -1,17 +1,14 @@
-const { Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const comprasSchema = new Schema(
   {
-    rucReceptor: { type: String, required: true },
-    razonReceptor: { type: String },
-    rucEmisor: { type: String, required: true },
-    razonEmisor: { type: String },
+    nombreCliente: { type: String },
+    rucCliente: { type: String, required: true },
     fechaEmision: { type: Date },
-    fechaVencimiento: { type: String },
-    formaPago: { type: String },
-    tipoMoneda: { type: String, required: true },
     numeroFactura: { type: String },
+    tipoMoneda: { type: String, required: true },
     importeTotal: { type: Number, required: true },
+    metodoPago: { type: String },
     guiaRemision: { type: String },
     ordenCompra: { type: String },
   },
@@ -19,6 +16,5 @@ const comprasSchema = new Schema(
     timestamps: true,
   }
 );
-
 
 module.exports = model("Compras", comprasSchema);

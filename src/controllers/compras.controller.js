@@ -8,35 +8,27 @@ comprasCntrl.getCompras = async (req, res) => {
 
 comprasCntrl.createCompra = async (req, res) => {
   const {
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador,
   } = req.body;
 
   const newCompra = new Compra({
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador,
   });
   await newCompra.save();
   res.send("compra created");
@@ -50,37 +42,29 @@ comprasCntrl.getCompra = async (req, res) => {
 
 comprasCntrl.updateCompra = async (req, res) => {
   const {
-    rucReceptor,
-    razonReceptor,
-    rucEmisor,
-    razonEmisor,
+    nombreCliente,
+    rucCliente,
     fechaEmision,
-    fechaVencimiento,
-    formaPago,
-    tipoMoneda,
     numeroFactura,
+    tipoMoneda,
     importeTotal,
+    metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador,
   } = req.body;
 
   await Compra.findOneAndUpdate(
     { _id: req.params.id },
     {
-      rucReceptor,
-      razonReceptor,
-      rucEmisor,
-      razonEmisor,
-      fechaEmision,
-      fechaVencimiento,
-      formaPago,
-      tipoMoneda,
-      numeroFactura,
-      importeTotal,
-      guiaRemision,
-      ordenCompra,
-      usuarioCreador,
+    nombreCliente,
+    rucCliente,
+    fechaEmision,
+    numeroFactura,
+    tipoMoneda,
+    importeTotal,
+    metodoPago,
+    guiaRemision,
+    ordenCompra,
     }
   );
   res.json({ message: "compra creada" });

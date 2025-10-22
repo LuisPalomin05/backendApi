@@ -18,7 +18,6 @@ ventasCntrl.createVenta = async (req, res) => {
     metodoPago,
     guiaRemision,
     ordenCompra,
-    usuarioCreador,
   } = req.body;
   const newVentas = new Venta({
     nombreCliente,
