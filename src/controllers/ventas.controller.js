@@ -5,7 +5,6 @@ const Venta = require("../models/Ventas");
 ventasCntrl.getVentas = async (req, res) => {
   const ventas = await Venta.find();
   res.json(ventas);
-
 };
 
 ventasCntrl.createVenta = async (req, res) => {
@@ -22,7 +21,7 @@ ventasCntrl.createVenta = async (req, res) => {
     importeTotal,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
+    usuarioCreador,
   } = req.body;
   const newVentas = new Venta({
     rucReceptor,
@@ -37,7 +36,7 @@ ventasCntrl.createVenta = async (req, res) => {
     importeTotal,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
+    usuarioCreador,
   });
   await newVentas.save();
   res.send("venta created");
@@ -63,7 +62,7 @@ ventasCntrl.updateVenta = async (req, res) => {
     importeTotal,
     guiaRemision,
     ordenCompra,
-    usuarioCreador
+    usuarioCreador,
   } = req.body;
   await Venta.findOneAndUpdate(
     { _id: req.params.id },
@@ -80,7 +79,7 @@ ventasCntrl.updateVenta = async (req, res) => {
       importeTotal,
       guiaRemision,
       ordenCompra,
-      usuarioCreador
+      usuarioCreador,
     }
   );
   res.json({ menssage: "Venta creada" });

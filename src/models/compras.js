@@ -2,12 +2,18 @@ const { Schema, model} = require("mongoose");
 
 const comprasSchema = new Schema(
   {
-    rucCliente: { type: String, required: true },
-    nombreCliente: { type: String },
-    fechaEmision: { type: String },
-    numerofactura: { type: String },
+    rucReceptor: { type: String, required: true },
+    razonReceptor: { type: String },
+    rucEmisor: { type: String, required: true },
+    razonEmisor: { type: String },
+    fechaEmision: { type: Date },
+    fechaVencimiento: { type: String },
+    formaPago: { type: String },
+    tipoMoneda: { type: String, required: true },
+    numeroFactura: { type: String },
     importeTotal: { type: Number, required: true },
-    tipoMoneda: { type: String },
+    guiaRemision: { type: String },
+    ordenCompra: { type: String },
   },
   {
     timestamps: true,
