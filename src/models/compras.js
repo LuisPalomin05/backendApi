@@ -1,18 +1,20 @@
-const { Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const comprasSchema = new Schema(
   {
-    rucCliente: { type: String, required: true },
     nombreCliente: { type: String },
-    fechaEmision: { type: String },
-    numerofactura: { type: String },
+    rucCliente: { type: String, required: true },
+    fechaEmision: { type: Date },
+    numeroFactura: { type: String },
+    tipoMoneda: { type: String, required: true },
     importeTotal: { type: Number, required: true },
-    tipoMoneda: { type: String },
+    metodoPago: { type: String },
+    guiaRemision: { type: String },
+    ordenCompra: { type: String },
   },
   {
     timestamps: true,
   }
 );
-
 
 module.exports = model("Compras", comprasSchema);

@@ -7,15 +7,28 @@ comprasCntrl.getCompras = async (req, res) => {
 };
 
 comprasCntrl.createCompra = async (req, res) => {
-  const { ruc, cliente, emision, empresa, nfactura, total, moneda } = req.body;
+  const {
+    nombreCliente,
+    rucCliente,
+    fechaEmision,
+    numeroFactura,
+    tipoMoneda,
+    importeTotal,
+    metodoPago,
+    guiaRemision,
+    ordenCompra,
+  } = req.body;
 
   const newCompra = new Compra({
-    rucCliente,
     nombreCliente,
+    rucCliente,
     fechaEmision,
-    numerofactura,
-    importeTotal,
+    numeroFactura,
     tipoMoneda,
+    importeTotal,
+    metodoPago,
+    guiaRemision,
+    ordenCompra,
   });
   await newCompra.save();
   res.send("compra created");
@@ -29,23 +42,29 @@ comprasCntrl.getCompra = async (req, res) => {
 
 comprasCntrl.updateCompra = async (req, res) => {
   const {
-    rucCliente,
     nombreCliente,
+    rucCliente,
     fechaEmision,
-    numerofactura,
-    importeTotal,
+    numeroFactura,
     tipoMoneda,
+    importeTotal,
+    metodoPago,
+    guiaRemision,
+    ordenCompra,
   } = req.body;
 
   await Compra.findOneAndUpdate(
     { _id: req.params.id },
     {
-      rucCliente,
       nombreCliente,
+      rucCliente,
       fechaEmision,
-      numerofactura,
-      importeTotal,
+      numeroFactura,
       tipoMoneda,
+      importeTotal,
+      metodoPago,
+      guiaRemision,
+      ordenCompra,
     }
   );
   res.json({ message: "compra creada" });
