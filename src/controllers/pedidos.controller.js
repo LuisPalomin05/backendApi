@@ -8,13 +8,14 @@ pedidoCntrl.getPedidos = async (req, res) => {
 };
 
 pedidoCntrl.createPedido = async (req, res) => {
-  const { producto, nombreCliente, rucCliente, numeroCotizacion } = req.body;
+  const { producto, nombreCliente, rucCliente, numeroCotizacion,fechaPedido } = req.body;
 
   const newPedido = new Pedido({
     producto,
     nombreCliente,
     rucCliente,
     numeroCotizacion,
+    fechaPedido
   });
 
   await newPedido.save();
@@ -28,7 +29,7 @@ pedidoCntrl.getPedido = async (req, res) => {
 };
 
 pedidoCntrl.updatePedido = async (req, res) => {
-  const { producto, nombreCliente, rucCliente, numeroCotizacion } = req.body;
+  const { producto, nombreCliente, rucCliente, numeroCotizacion,fechaPedido } = req.body;
   await Pedido.findOneAndUpdate(
     { _id: req.params.id },
     {
@@ -36,6 +37,7 @@ pedidoCntrl.updatePedido = async (req, res) => {
       nombreCliente,
       rucCliente,
       numeroCotizacion,
+      fechaPedido
     }
   );
   res.json({message:"pedido actualizado"})
