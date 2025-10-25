@@ -4,8 +4,8 @@ const { getUsers, createUser, getUser, updateUser, deleteUser } = require('../co
 
 router.route('/')
 .get(getUsers)
-.post(createUser);
-
+.post(createUser)
+.post('/login', usersCntrl.loginUser);
 
 // http://localhost:4000/api/users/1
 router.route('/:id')
